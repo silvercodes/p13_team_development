@@ -1,0 +1,37 @@
+﻿
+
+title			argument(s)			options
+
+
+=== Argument
+{path}					required
+{path?}					optional
+{path=C:\projects}		with default parameter
+
+=== Options
+{--report}				boolean options
+{--report|r}
+{--report|R}
+{--r|report}
+{--R|report}
+{--report|R=}								required options
+{--report|R=report.txt}						with default value
+{--report|R=report.txt:Make the report}
+
+
+
+
+
+
+
+
+
+
+=== Signture example
+
+clean {path} {--recursive|r} {--mask|m=*.txt}
+
+
+clean /usr/log
+
+clean /usr/log -m=*.bin
