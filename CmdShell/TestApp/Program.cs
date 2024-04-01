@@ -5,7 +5,10 @@ using CmdShell;
 
 
 Application app = new Application();
-// Add command
+app.Commands.Add(new CleanCommand());
+// TODO: set configs
+// TODO: set logger
+
 app.Run();
 
 
