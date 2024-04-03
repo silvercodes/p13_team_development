@@ -15,8 +15,8 @@ internal class ConsoleKernel : Kernel
 
     protected override void SetupBootstrappers()
     {
-        Bootsrappers.Add(new BuildBootstrapper());
-        Bootsrappers.Add(new CommandBootstrapper(Commands));
+        Bootsrappers.Add(new BuildBootstrapper(Commands));
+        Bootsrappers.Add(new ParsingBootstrapper());
 
         // Bootsrappers.Add(new AppBootstrapper());
         //

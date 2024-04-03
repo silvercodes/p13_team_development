@@ -19,6 +19,11 @@ internal class CommandInitializer
 
     public void Build(Command command)
     {
-        int a = 5;
+        string signature = command.Signature.Trim();
+
+        command.Title = titleBuilder.Build(signature);
+        // arg
+        // opts
+
     }
 }

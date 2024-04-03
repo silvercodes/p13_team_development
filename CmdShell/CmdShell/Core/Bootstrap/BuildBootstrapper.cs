@@ -10,6 +10,11 @@ namespace CmdShell.Core.Bootstrap
 {
     internal class BuildBootstrapper : IBootsrapper
     {
+        public CommandCollection CommandCollection { get; set; }
+        public BuildBootstrapper(CommandCollection commands)
+        {
+            CommandCollection = commands;
+        }
         public void Register()
         {
             AppServiceProvider.Services.AddSingleton<IBuilder<string>, TitleBuilder>();
@@ -20,7 +25,12 @@ namespace CmdShell.Core.Bootstrap
         }
         public void Boot()
         {
-            
+            CommandInitializer ci = AppServiceProvider.GetRequiredService<CommandInitializer>();
+
+            CommandCollection.Commands.ForEach(cmd =>
+            {
+                ci.Build(cmd);
+            });
         }        
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 
-title			argument(s)			options
+title			argument			options
 
 
 === Argument
@@ -36,3 +36,28 @@ clean /usr/bin --report
 clean /usr/log
 
 clean /usr/log -m=*.bin
+
+
+
+============ Regex =============
+a
+b
+c
+[a-z]
+[abc]
+[a-zA-Z]
+[^abc]
+\w
+\s
+\d
+.
+
+{3}
+{3,}
+{3,7}
+*
++
+?
+
+^
+$
