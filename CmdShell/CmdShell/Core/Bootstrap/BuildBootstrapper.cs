@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace CmdShell.Core.Bootstrap
         public void Register()
         {
             AppServiceProvider.Services.AddSingleton<IBuilder<string>, TitleBuilder>();
-
+            AppServiceProvider.Services.AddSingleton<IBuilder<CommandArgument>, ArgumentBuilder>();
 
 
             AppServiceProvider.Services.AddSingleton<CommandInitializer>();

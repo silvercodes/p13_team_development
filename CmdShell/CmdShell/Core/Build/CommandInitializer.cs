@@ -9,12 +9,15 @@ namespace CmdShell.Core.Build;
 internal class CommandInitializer
 {
     private IBuilder<string> titleBuilder;
+    private IBuilder<CommandArgument> argumentBuilder;
 
     public CommandInitializer(
-        IBuilder<string> titleBuilder
+        IBuilder<string> titleBuilder,
+        IBuilder<CommandArgument> argumentBuilder
     )
     {
         this.titleBuilder = titleBuilder;
+        this.argumentBuilder = argumentBuilder;
     }
 
     public void Build(Command command)
@@ -22,7 +25,7 @@ internal class CommandInitializer
         string signature = command.Signature.Trim();
 
         command.Title = titleBuilder.Build(signature);
-        // arg
+        command.Argument = argumentBuilder.Build(signature);
         // opts
 
         Console.WriteLine();

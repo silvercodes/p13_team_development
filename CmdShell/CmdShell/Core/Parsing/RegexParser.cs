@@ -22,4 +22,11 @@ internal class RegexParser : IParser
 
         return regex.Match(input).Value;
     }
+
+    public string ExtractFirstGroupValue(string input, string pattern)
+    {
+        Regex regex = new Regex(pattern);
+
+        return regex.Match(input).Groups[1].Value;
+    }
 }
