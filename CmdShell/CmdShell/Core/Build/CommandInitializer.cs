@@ -25,5 +25,6 @@ internal class CommandInitializer
         // arg
         // opts
 
+        Console.WriteLine();
     }
 }
