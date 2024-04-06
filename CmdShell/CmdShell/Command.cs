@@ -13,6 +13,7 @@ public abstract class Command
 
     public string? Title { get; set; } = null;
     public CommandArgument? Argument { get; internal set; } = null;
+    public List<CommandOption>? Options { get; set; } = null;
 
     public virtual string Description { get; set; } = string.Empty;
     public virtual string Help { get; set; } = string.Empty;

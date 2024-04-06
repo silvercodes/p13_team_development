@@ -11,6 +11,7 @@ namespace CmdShell.Core.Exceptions
         public const string BUILD_CMD_INVALID_TITLE = "Command title is invalid or not found";
         public const string BUILD_ARG_INVALID_TITLE = "Command argument title is invalid or not found";
         public const string BUILD_ARG_INVALID_SYNTAX = "Command argument syntax is invalid";
+        public const string BUILD_OPT_INVALID_TITLE = "Command option title is invalid";
         public BuildException(string? message) 
             :base(message)
         {

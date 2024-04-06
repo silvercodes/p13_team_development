@@ -20,7 +20,7 @@ namespace CmdShell.Core.Bootstrap
         {
             AppServiceProvider.Services.AddSingleton<IBuilder<string>, TitleBuilder>();
             AppServiceProvider.Services.AddSingleton<IBuilder<CommandArgument>, ArgumentBuilder>();
-
+            AppServiceProvider.Services.AddSingleton<IBuilder<List<CommandOption>?>, OptionsBuilder>();
 
             AppServiceProvider.Services.AddSingleton<CommandInitializer>();
         }
@@ -32,6 +32,8 @@ namespace CmdShell.Core.Bootstrap
             {
                 ci.Build(cmd);
             });
+
+            Console.WriteLine();
         }        
     }
 }
