@@ -17,12 +17,14 @@ namespace CmdShell.Core.Build
         {
             this.parser = parser;
         }
-        public string Build(string signature)
+        public string? Build(string signature)
         {
-            if (!parser.Check(signature, TITLE_PATTERN))
+            string? title = parser.ExtractMatch(signature, TITLE_PATTERN);
+
+            if (string.IsNullOrEmpty(title))
                 throw new BuildException(BuildException.BUILD_CMD_INVALID_TITLE);
 
-            return parser.ExtractMatch(signature, TITLE_PATTERN);
+            return title;
         }
     }
 }

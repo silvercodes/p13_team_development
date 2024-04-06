@@ -8,5 +8,5 @@ namespace CmdShell.Core.Build;
 
 internal interface IBuilder<T>
 {
-    public T Build(string signature);
+    public T? Build(string signature);
 }
