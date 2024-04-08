@@ -19,6 +19,9 @@ namespace CmdShell.Core.Build
         private const string OPT_SHORTCUT_PATTERN =
             @"^[a-z]{2,}\|(?<" + OPT_SHORTCUT_GROUP_KEY + @">[a-zA-Z]{1})|^(?<" + OPT_SHORTCUT_GROUP_KEY + @">[a-zA-Z]{1})\|";
         private const string OPT_IS_BOOLEAN_PATTERN = @"^[^=]+$";
+        private const string OPT_IS_VALUE_REQUIRED_PATTERN = @"=(-->|$)";
+        private const string OPT_DEFAULT_VALUE_PATTERN = @"=`(.*?)`";
+        private const string OPT_DESCRIPTION_PATTERN = @"-->(.*?)$";
 
 
         private IParser parser;
@@ -43,6 +46,10 @@ namespace CmdShell.Core.Build
                     {
                         Title = DetectTitle(s),
                         Shortcut = DetectShortcut(s),
+                        IsBoolean = DetectIsBoolean(s),
+                        IsValueRequired = DetectIsValueRequired(s),
+                        DefaultValue = DetectDefaultValue(s),
+                        Description = DetectDescription(s),
                     }
                 );
             });
@@ -70,6 +77,30 @@ namespace CmdShell.Core.Build
             string? shortcut = parser.ExtractNamedGroupValue(optSignature, OPT_SHORTCUT_PATTERN, OPT_SHORTCUT_GROUP_KEY);
 
             return string.IsNullOrEmpty(shortcut) ? null : shortcut;
+        }
+
+        private bool DetectIsBoolean(string optSignature)
+        {
+            return parser.Check(optSignature, OPT_IS_BOOLEAN_PATTERN);
+        }
+
+        private bool DetectIsValueRequired(string optSignature)
+        {
+            return parser.Check(optSignature, OPT_IS_VALUE_REQUIRED_PATTERN);
+        }
+
+        private string? DetectDefaultValue(string optSignature) 
+        {
+            string defaultValue = parser.ExtractFirstGroupValue(optSignature, OPT_DEFAULT_VALUE_PATTERN);
+
+            return string.IsNullOrEmpty(defaultValue) ? null : defaultValue;
+        }
+
+        private string? DetectDescription(string optSignature)
+        {
+            string description = parser.ExtractFirstGroupValue(optSignature, OPT_DESCRIPTION_PATTERN);
+
+            return string.IsNullOrEmpty(description) ? null : description;
         }
     }
 }

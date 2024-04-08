@@ -6,7 +6,7 @@ title			argument			options
 === Argument
 {path}					required
 {path?}					optional
-{path=C:\projects}		with default parameter
+{path=`C:\projects`}		with default parameter
 
 === Options
 {--report}				boolean options
@@ -15,8 +15,8 @@ title			argument			options
 {--r|report}
 {--R|report}
 {--report|R=}								required options
-{--report|R=report.txt}						with default value
-{--report|R=report.txt:Make the report}
+{--report|R=`report.txt`}						with default value
+{--report|R=`report.txt`-->Make the report}
 
 
 

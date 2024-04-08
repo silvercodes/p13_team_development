@@ -30,5 +30,7 @@ internal class CommandInitializer
         command.Title = titleBuilder.Build(signature);
         command.Argument = argumentBuilder.Build(signature);
         command.Options = optionsBuilder.Build(signature);
+
+        Console.WriteLine();
     }
 }

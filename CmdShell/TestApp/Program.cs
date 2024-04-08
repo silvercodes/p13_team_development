@@ -17,7 +17,7 @@ app.Run();
 
 class CleanCommand : Command
 {
-    public override string Signature => @"clean {path=C:\\projects} {--flag:Flag} {--depth|d=:Finding depth} {--R|report=report.json:Make the report}";
+    public override string Signature => @"clean {path=`C:\\projects`} {--flag-->Flag} {--depth|d=-->Finding depth} {--R|report=`report.json`-->Make the report}";
 
     public override string Description => "Clean the specific files";
     public override string Help => "https://google.com";

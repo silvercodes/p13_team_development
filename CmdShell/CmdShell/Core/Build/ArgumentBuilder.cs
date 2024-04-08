@@ -14,7 +14,7 @@ namespace CmdShell.Core.Build
         private const string ARG_TITLE_PATTERN = @"^[a-z]+";
         private const string ARG_IS_REQUIRED_PATERN = @"^[a-z]+$";
         private const string ARG_NOT_REQUIRED_SYNTAX_PATTERN = @"^[a-z]+[\?=]";
-        private const string ARG_DEFAULT_VALUE_PATTERN = @"^[a-z]+=(.+$)";
+        private const string ARG_DEFAULT_VALUE_PATTERN = @"^[a-z]+=`(.+?)`$";
 
         private IParser parser;
 
