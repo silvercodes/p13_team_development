@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CmdShell.Core.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,11 @@ public class CommandCollection
         Commands.Add(command);
     }
 
-    public void Find(string title)
+    public Command Find(string title)
     {
-        
+        if (!Commands.Any(cmd => cmd.Title == title))
+            throw new RuntimeException(RuntimeException.CMD_NOT_FOUND);
+
+        return Commands.First(cmd => cmd.Title == title);
     }
 }

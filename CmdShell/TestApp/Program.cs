@@ -1,7 +1,4 @@
-﻿
-
-
-using CmdShell;
+﻿using CmdShell;
 
 
 Application app = new Application();
@@ -12,12 +9,10 @@ app.Commands.Add(new CleanCommand());
 app.Run();
 
 
-
-
-
 class CleanCommand : Command
 {
-    public override string Signature => @"clean {path=`C:\\projects`} {--flag-->Flag} {--depth|d=-->Finding depth} {--R|report=`report.json`-->Make the report}";
+    // public override string Signature => @"clean {path=`C:\\projects`} {--flag-->Flag} {--depth|d=-->Finding depth} {--R|report=`report.json`-->Make the report}";
+    public override string Signature => @"clean {path}";
 
     public override string Description => "Clean the specific files";
     public override string Help => "https://google.com";
@@ -25,10 +20,16 @@ class CleanCommand : Command
 
     public override void Execute()
     {
-        Console.WriteLine("Command OK");
+        Console.WriteLine($"ARGUMENT: {Argument?.Value}");
 
-        
 
+
+
+    }
+
+    public void RenderHelp()
+    {
+        Console.WriteLine("Help from Vasia");
     }
 }
 

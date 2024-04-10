@@ -17,8 +17,9 @@ internal class ConsoleKernel : Kernel
     {
         Bootsrappers.Add(new BuildBootstrapper(Commands));
         Bootsrappers.Add(new ParsingBootstrapper());
+        Bootsrappers.Add(new IOBootstrapper());
 
-        // Bootsrappers.Add(new AppBootstrapper());
+        Bootsrappers.Add(new AppBootstrapper());
         //
         //
         //

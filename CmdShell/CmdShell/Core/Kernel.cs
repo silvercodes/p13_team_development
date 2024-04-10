@@ -1,4 +1,5 @@
 ﻿using CmdShell.Core.Bootstrap;
+using CmdShell.Core.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,14 @@ internal abstract class Kernel
     private void ExecuteBootMethods()
     {
         Bootsrappers.ForEach(bootstrapper => bootstrapper.Boot());
+    }
+
+    // TODO: return int ???
+    public void Handle()
+    {
+        AppController controller = AppServiceProvider.GetRequiredService<AppController>();
+
+        controller.StartProcessing(Commands);
     }
 
 

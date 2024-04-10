@@ -38,6 +38,18 @@ clean /usr/log
 clean /usr/log -m=*.bin
 
 
+=== Service call ====
+clean --help
+clean -h
+clean --signature
+
+
+
+clean {path=`C:\\projects`} {--flag-->Flag} {--depth|d=-->Finding depth} {--R|report=`report.json`-->Make the report}
+
+clean /usr/bin -d=15
+
+
 
 ============ Regex =============
 a

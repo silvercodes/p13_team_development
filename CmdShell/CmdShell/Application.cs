@@ -22,6 +22,6 @@ public class Application
         // TODO: by condition ???
         kernel = new ConsoleKernel(Commands);           // Этап инициализации
 
-                                                        // этап рантайма
+        kernel.Handle();                                // этап рантайма
     }
 }
